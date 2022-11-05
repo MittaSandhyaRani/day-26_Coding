@@ -1,0 +1,15 @@
+from itertools import product
+
+K,M = map(int,input().split())
+inputs = []
+
+for i in range(K):
+    list_data = [i**2 for i in list(map(int,input().split()))][1:]
+    inputs.append(list_data)
+    
+max= 0
+for data in product(*inputs):
+    if max < sum(data)%M:
+        max= sum(data)%M
+        
+print(max)
